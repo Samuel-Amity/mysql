@@ -112,7 +112,7 @@ select * from student order by class desc; -- "desc" decending order
 select * from student order by class desc,age;
 select * from student order by class, age desc;
 
--- where clause
+-- where clause =, !=, <, <=, >, >=
 
 select * from student where class>10;
 select * from student where age<=15;
