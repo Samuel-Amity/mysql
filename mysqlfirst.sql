@@ -70,3 +70,51 @@ alter table student rename column name to full_name; -- rename column
 alter table student rename to teacher; -- rename whole table
 
 describe student;
+
+-- DML COMMANDS
+
+-- insert delete update
+
+describe student;
+
+-- 1 Insert
+
+insert into student(id,name,age,class)
+values
+(1, 'mohit', 18, 12),
+(2, 'rohit', 17, 11);
+
+select * from student;
+
+insert into student(id,name,age,class)
+values
+(3, 'jatin', 14, 8),
+(4, 'shweta', 19,12),
+(5, 'prateek', 14, 8),
+(6, 'vishnu', 12, 7),
+(7, 'mahesh', 17, 10),
+(8, 'aparna', 16, 11),
+(9, 'jatin', 17, 11),
+(10, 'rohit',13,8);
+
+-- DQL COMMAND -- SELECT
+
+select * from student;
+select name,age,id ,class from student; -- shows in typed order
+-- distinct
+select distinct name from student; -- to hide all duplicate
+-- limit \, offset, orderby
+select * from student limit 5; -- show only first 5
+select * from student limit 5 offset 3; -- offset to skip starting entries
+select * from student order by class; -- order by asending order 
+select * from student order by class asc;
+select * from student order by class desc; -- "desc" decending order
+select * from student order by class desc,age;
+select * from student order by class, age desc;
+
+-- where clause
+
+select * from student where class>10;
+select * from student where age<=15;
+select * from student where name = "sam";
+select * from student where id=7;
