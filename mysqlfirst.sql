@@ -118,3 +118,20 @@ select * from student where class>10;
 select * from student where age<=15;
 select * from student where name = "sam";
 select * from student where id=7;
+
+-- Aggregate Functions
+-- min()
+-- max()
+-- count()
+-- sum()
+-- average()
+-- standard
+
+-- sql alises --> AS {desired_name}
+
+select min(age) as minimum_age from student;
+select max(age) as maximum_age from student;
+select count(class) as total from student;
+select sum(age) from student;
+select avg(age) as average_age from student;
+select std(age) as standard_age from student;
