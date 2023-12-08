@@ -125,7 +125,7 @@ select * from student where id=7;
 -- count()
 -- sum()
 -- average()
--- standard
+-- standard()
 
 -- sql alises --> AS {desired_name}
 
