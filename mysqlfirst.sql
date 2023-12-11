@@ -135,3 +135,39 @@ select count(class) as total from student;
 select sum(age) from student;
 select avg(age) as average_age from student;
 select std(age) as standard_age from student;
+
+-- Update -- setsql_safe_updates = 0;
+
+update student set age = 20 where id=2;
+update student set age = 25, class = 10 where id=4;
+update student set name = "pooja";
+-- update employee set esalary=4000,dob='1993-08-30' where eid=1;
+
+-- Delete
+delete from student;
+delete from student where id=1;
+
+-- TCL -- roll back, savepoint, commit
+
+start transaction;
+update student set class = 12 where id =3;
+commit;
+-- OR
+rollback;
+
+begin;
+
+delete from student;
+rollback;
+select * from student
+
+begin;
+select* from student;
+savepoint point1;
+update student set class = 15 where id=3;
+savepoint point2;
+delete from student where id=2;
+savepoint point3;
+update student set age = 45;
+rollback to point2;
+commit; -- or rollback
