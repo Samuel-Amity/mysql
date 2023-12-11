@@ -171,3 +171,75 @@ savepoint point3;
 update student set age = 45;
 rollback to point2;
 commit; -- or rollback
+
+-- Group By
+
+select * from student;
+
+select class, count(*) from student group by class;
+select class, count(*) as total from student
+group by class having total>=2;
+
+-- Joints
+
+create table marks (
+id int not null,
+subject varchar(255) not null,
+marks int not null,
+
+primary key (id,subject)
+);
+describe marks;
+insert into marks 
+values (9, 'maths', 89),
+(2, 'english', 75),
+(1, 'maths', 91),
+(4, 'science', 97),
+(10, 'computer', 83),
+(1, 'english', 55),
+(3, 'maths',58);
+select * from marks;
+select * from student;
+
+-- 1. Inner join
+select name,age, subject, class
+from student
+join marks
+on student.id = marks.id;
+
+-- 2. Left join
+select name,age, subject, class
+from student
+left join marks
+on student.id = marks.id;
+
+-- 3. Right join
+select name,age, subject, class
+from student
+right join marks
+on student.id = marks.id;
+
+-- 4. Full outer join 
+-- by using 
+
+-- Union
+select name,age, subject, class
+from student
+left join marks
+on student.id = marks.id
+union
+select name,age, subject, class
+from student
+right join marks
+on student.id = marks.id;
+
+-- Union.all
+select name,age, subject, class
+from student
+left join marks
+on student.id = marks.id
+union all
+select name,age, subject, class
+from student
+right join marks
+on student.id = marks.id;
