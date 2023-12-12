@@ -119,6 +119,22 @@ select * from student where age<=15;
 select * from student where name = "sam";
 select * from student where id=7;
 
+-- AND OR NOT IN BTW LIKE
+
+select * from student where class>=11 and age <18 and name = "jatin"; -- AND
+select * from student where class>=11 or age <18 or name = "rohit" ; -- OR
+select * from student where not name = "shweta" ; -- NOT 
+select * from student where age between 13 and 17; -- BTW
+select * from student where name in ("rohit","jatin", "aparna"); -- IN -- select * from student where name = "rohit" or name = "jatin" or name = "aprna";
+-- LIKE -- patern matching
+-- % - wild card
+-- _ - wildcard [-]
+select * from student where name like "a%" ;
+select * from student where name like "%a";
+select * from student where name like "%t_";
+select * from student where name like "__a%";
+select * from student where name like "%ti%";
+
 -- Aggregate Functions
 -- min()
 -- max()
@@ -243,3 +259,61 @@ select name,age, subject, class
 from student
 right join marks
 on student.id = marks.id;
+
+-- 5. Cross Join
+
+select name,age, subject, class
+from student
+cross join marks;
+
+-- 6. Self join
+
+select * from student;
+
+-- Inner self join
+select t1.name,t2.age
+from student t1
+join student t2
+on t1.id = t2.id;
+
+-- Left self join
+select t1.name,t2.age
+from student t1
+left join student t2
+on t1.id = t2.id;
+
+-- Right self join
+select t1.name,t2.age
+from student t1
+right join student t2
+on t1.id = t2.id;
+
+
+-- -----------------------------------
+
+
+CREATE TABLE Employees(
+EmployeesID INT,
+FirstName VARCHAR(50),
+LastName VARCHAR(50),
+ ManagerID int);
+ 
+ -- Insert sample data
+INSERT INTO Employees (EmployeesID, FirstName, LastName, ManagerID)
+VALUES
+  (1, 'John', 'Doe', NULL),   -- John Doe is the top-level manager (ManagerID is NULL)
+  (2, 'Alice', 'Smith', 1),   -- Alice Smith reports to John Doe
+  (3, 'Bob', 'Johnson', 1),    -- Bob Johnson also reports to John Doe
+  (4, 'Charlie', 'Brown', 2),  -- Charlie Brown reports to Alice Smith
+  (5, 'David', 'Wilson', 3);   -- David Wilson reports to Bob Johnson
+  
+  select * from Employees;
+  
+SELECT 
+  e1.FirstName AS e_first_name,
+  e1.LastName AS e_last_name,
+  e2.FirstName AS M_First_name,
+  e2.LastName AS m_last_name
+FROM Employees e1
+JOIN Employees e2 
+ON e1.ManagerID = e2.EmployeesID;
