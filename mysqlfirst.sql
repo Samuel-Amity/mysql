@@ -317,3 +317,49 @@ SELECT
 FROM Employees e1
 JOIN Employees e2 
 ON e1.ManagerID = e2.EmployeesID;
+
+-- types of Fn
+
+-- 1. Aggregate Fn -- done above
+
+-- 2. Math Fn
+select pi() as result;
+select power(2,3);
+select truncate(1.2345678, 2);
+select sqrt(25);
+select exp(5);
+select mod(15,4); -- modulus = reminder
+
+-- 3. Date fn
+select now();
+select curdate();
+select current_time(); -- select curtime();
+select sysdate(); -- System date
+select year(sysdate()); -- show only year in sysdate
+select month(now()); -- show current month
+/*select date_format("2017-06-05" , "%y"); -- : %Y - full and %y - 2 digit
+select date_format("2017-06-05","%m %d %y"); 
+select date_format("2017-06-05","%M %d %Y"); -- M = Full name of month
+*/
+select datediff('2010-12-30', '2010-11-30')  as differnece; -- diffrence btw two year --
+/*select date_add(current_date(), interval 10 year); -- add 10 years
+select date_add(current_date(), interval 5 month);
+select date_add(current_date(), interval 10 day); 
+*/
+/*select date_sub(current_date(), interval 10 year); -- subt 10 years
+select date_sub(current_date(), interval 5 month); -- sub 5 mo
+select date_sub(current_date(), interval 5 day); -- sub 5 day
+*/
+
+-- 4. String Fn
+select concat("hello" " " "world"); -- Join both
+select *, concat(name, " SHarma") as full_name from student; -- adds sharma to name
+select name,length(name) from student; -- how many charecter long is name
+select *, upper(name) from student; -- UPPer case name
+select lower("DATA SCIENCE"); -- put data in lower case
+select substring("We are learning My sql", 8, 8); -- show only "learning" which is starting at pos 8 
+select left("Fullstack", 4); -- show 4 left char
+select right("Fullstack", 4); -- show 4 right char
+select trim("      Rohit     ");
+select replace("We are learning My Sql" , "My Sql" , "Python"); -- replace Mysql with python;
+-- SELECT POSITION('lo' IN 'Hello') AS result; 
