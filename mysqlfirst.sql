@@ -363,3 +363,25 @@ select right("Fullstack", 4); -- show 4 right char
 select trim("      Rohit     ");
 select replace("We are learning My Sql" , "My Sql" , "Python"); -- replace Mysql with python;
 -- SELECT POSITION('lo' IN 'Hello') AS result; 
+
+-- IF ELSE 
+select *,
+case
+	when class = 8 then "its eight"
+	when class = 10 then "its ten"
+    when class = 11 then "its ten"
+else "you are a kid"
+end as Class_name
+from student;
+select *,
+case 
+	when age>=18 then "You are eligible for voting"
+    when age<18 then "You are kid"
+end as voting
+from student;
+select *,
+case 
+	when age>=18 then "You are eligible for voting"
+else "you are kid"
+end as age_criteria
+from student;
