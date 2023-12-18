@@ -385,3 +385,27 @@ case
 else "you are kid"
 end as age_criteria
 from student;
+
+select *,
+case
+	when age<=14 then "younger"
+    else "older"
+    end as New_age
+    from student;
+    
+    select *,
+    if(age<=14, "younger" , "older") as age_status
+    from student;
+    
+    select *,
+    if(class<=10 , "Primary school" , "high school") as Class_change
+    from student;
+    
+-- DCL
+-- GrANT AND REVOKE
+
+create user "ravi@123" identified by "r@123";
+show grants for "ravi@123"; -- show no. of grants
+grant select, update, delete on facebook.* to "rave@123"; -- Grant
+revoke select, update on facebook.* from "rave@123"; -- Revoke
+drop user "ravi@123"; -- Delete 
