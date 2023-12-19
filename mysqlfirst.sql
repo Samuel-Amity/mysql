@@ -409,3 +409,13 @@ show grants for "ravi@123"; -- show no. of grants
 grant select, update, delete on facebook.* to "rave@123"; -- Grant
 revoke select, update on facebook.* from "rave@123"; -- Revoke
 drop user "ravi@123"; -- Delete 
+
+-- Sub Query
+
+/*
+Find out all those who are having age greater than average age
+ */
+ select * from student
+where age > (select avg(age) from student); --  can put age > 15 also
+select name from student where id in
+(select id from student where class>10);
