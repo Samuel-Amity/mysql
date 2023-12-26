@@ -419,3 +419,10 @@ Find out all those who are having age greater than average age
 where age > (select avg(age) from student); --  can put age > 15 also
 select name from student where id in
 (select id from student where class>10);
+
+-- Import / Export
+
+create database IRIS23;
+show tables;
+select * from profit;
+create database import;
